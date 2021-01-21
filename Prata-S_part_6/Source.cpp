@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cctype>
+#include <array>
 
 using namespace std;
 
@@ -24,10 +25,42 @@ void Task_1() {
 
 }
 
+void Task_2() {
+	int SIZE = 10;
+	double* var = new double[SIZE];	// Объявляем динамический массив типа double длиной 10
+
+	cout << "Enter the amount of donation:" << endl;
+
+	for (int i = 0; i < SIZE; i++){
+		cout << "#" << i + 1 <<" donation:  ";
+			cin >> var[i];
+		cout << endl;
+	}
+
+	double sred_num = 0;
+
+	for (int i = 0; i < SIZE; i++)
+		sred_num += var[i];
+
+	sred_num /= SIZE;
+
+	cout << "Average number = " << sred_num << endl;
+
+	int iter = 0;
+
+	for (int i = 0; i < SIZE; i++)
+		if (var[i] > sred_num) 
+			iter++;
+
+	cout << "More than average values = " << iter << endl;
+	
+	delete[] var;
+}
+
 int main() {
 	setlocale(0, "");
 
-	Task_1();
+	Task_2();
 
 	system("pause");
 	return 0;
